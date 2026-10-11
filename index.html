@@ -424,13 +424,13 @@ window._role=null;window._user=null;window._fbReady=false;window._useFirebase=fa
 <!-- FIREBASE -->
 <script>
 const FC={
-  apiKey:"AIzaSyC9u89xbpJTVuAn8mqM-I7O3P40QHljplQ",
-  authDomain:"restoran-pos-708fb.firebaseapp.com",
-  databaseURL:"https://restoran-pos-708fb-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId:"restoran-pos-708fb",
-  storageBucket:"restoran-pos-708fb.firebasestorage.app",
-  messagingSenderId:"13438484602",
-  appId:"1:13438484602:web:187389533fd8f7e52ffbc3"
+  apiKey:"AIzaSyA_2NV7eWR5J9upwfLveQMHdUbcyzAPmIg",
+  authDomain:"resturant-a4bfe.firebaseapp.com",
+  databaseURL:"https://resturant-a4bfe-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId:"resturant-a4bfe",
+  storageBucket:"resturant-a4bfe.firebasestorage.app",
+  messagingSenderId:"687930166832",
+  appId:"1:687930166832:web:d4c30d0dbab42fbae3e7f5"
 };
 (function initFirebase(){
   const ok=FC.apiKey&&FC.databaseURL;
@@ -1810,18 +1810,8 @@ async function sifreKaydet(){
 /* Mega – Restoran Ayarları */
 function megaAyarlarHTML(){
   const ay=window._D.ayarlar||{};
-  const fbRulesUyari=window._useFirebase?`<div style="background:rgba(224,140,78,.1);border:1px solid rgba(224,140,78,.3);border-radius:8px;padding:12px;margin-bottom:16px;font-size:13px">
-    <div style="font-weight:700;color:var(--orange);margin-bottom:6px">🔐 Firebase Güvenlik Kuralları</div>
-    <div style="color:var(--text2);line-height:1.6">Firebase Console'dan <b>Realtime Database → Rules</b> bölümüne gidip aşağıdaki kuralları uygulayın. Aksi hâlde herkes veritabanına yazabilir:</div>
-    <pre style="background:var(--bg);border-radius:6px;padding:10px;margin-top:8px;font-size:11px;overflow-x:auto;color:var(--text)">{
-  "rules": {
-    ".read": true,
-    ".write": true
-  }
-}</pre>
-    <div style="color:var(--text3);font-size:11px;margin-top:6px">⚠️ Şu an açık erişim (test modu). Prodüksiyona geçmeden önce Authentication tabanlı kurallar ekleyin.</div>
-    <button class="btn btn-orange btn-sm" style="margin-top:8px" onclick="window.open('https://console.firebase.google.com/project/restoran-pos-708fb/database/restoran-pos-708fb-default-rtdb/rules','_blank')">Firebase Console'u Aç →</button>
-  </div>`:'';
+  // veritabanı kuralları (database.rules.json) giriş yapmamış herkese kapalı; şifreler yalnızca özet olarak durur
+  const fbRulesUyari='';
   return`<div class="section-title" style="margin-bottom:16px">⚙️ Restoran Ayarları</div>
   ${fbRulesUyari}
   <div class="card" style="max-width:480px">
@@ -1898,7 +1888,7 @@ async function importJSON(){
       Object.values(d.garsonlar||{}).forEach(g=>{if(g)delete g.sifre;});
       if(!window._useFirebase){const keep=lsGet('gizli');if(keep)d.gizli=keep;d.kurulum=lsGet('kurulum');}
       if(window._useFirebase){
-        const keys=['masalar','siparisler','menu','garsonlar','ayarlar','bilgiFisleri','kategoriler'];
+        const keys=['masalar','siparisler','menu','garsonlar','ayarlar','bilgiFisleri','kategoriler','arsiv'];
         const updates={};
         keys.forEach(k=>{if(d[k]!==undefined)updates[k]=d[k];});
         await window._fb.db.ref('/').update(updates);
