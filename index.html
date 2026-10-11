@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Restoran POS</title>
+<title>Resturant</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -353,7 +353,7 @@ window._role=null;window._user=null;window._fbReady=false;window._useFirebase=fa
 <!-- LOGIN -->
 <div id="loginScreen">
   <div class="login-box">
-    <div class="login-logo" id="loginLogo">⬡ RESTORAN</div>
+    <div class="login-logo" id="loginLogo">⬡ Resturant</div>
     <div class="login-sub">Personel Girişi</div>
     <div class="local-banner" id="localBanner">⚠️ <b>Local Mod</b> — Firebase bağlı değil. Veriler yalnızca bu cihazda saklanır.</div>
     <div class="role-tabs">
@@ -379,7 +379,7 @@ window._role=null;window._user=null;window._fbReady=false;window._useFirebase=fa
 <!-- APP -->
 <div id="app">
   <div class="topbar">
-    <div class="topbar-logo" id="topbarLogo">⬡ RESTORAN</div>
+    <div class="topbar-logo" id="topbarLogo">⬡ Resturant</div>
     <div class="topbar-right">
       <span id="tpBadge" class="role-badge"></span>
       <span id="tpUser" style="font-size:13px;color:var(--text2)"></span>
@@ -512,7 +512,7 @@ function _refresh(){
     if(valEl)valEl.textContent=tl(ciro);
   }
 }
-function restoranAdi(){return(window._D.ayarlar?.restoranAd)||'⬡ RESTORAN';}
+function restoranAdi(){return(window._D.ayarlar?.restoranAd)||'⬡ Resturant';}
 function tl(n){const sym=(window._D.ayarlar?.paraBirimi)||'₺';return sym+Number(n||0).toFixed(2)}
 function now(){return new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'})}
 function today(){return new Date().toLocaleDateString('tr-TR')}
@@ -1816,7 +1816,7 @@ function megaAyarlarHTML(){
   ${fbRulesUyari}
   <div class="card" style="max-width:480px">
     <label class="il">Restoran Adı</label>
-    <input type="text" id="ayResAd" class="if" value="${ay.restoranAd||''}" placeholder="⬡ RESTORAN">
+    <input type="text" id="ayResAd" class="if" value="${ay.restoranAd||''}" placeholder="⬡ Resturant">
     <label class="il">Adres</label>
     <input type="text" id="ayAdres" class="if" value="${ay.adres||''}" placeholder="Atatürk Cad. No:1, İstanbul">
     <label class="il">Telefon</label>
@@ -1835,7 +1835,7 @@ async function ayarlarKaydet(){
   const altYazi=document.getElementById('ayAltYazi').value.trim();
   const paraBirimi=document.getElementById('ayParaBirimi').value.trim()||'₺';
   const updates={
-    'ayarlar/restoranAd':ad||'⬡ RESTORAN',
+    'ayarlar/restoranAd':ad||'⬡ Resturant',
     'ayarlar/adres':adres,
     'ayarlar/telefon':telefon,
     'ayarlar/fisAltYazi':altYazi,
@@ -1843,7 +1843,7 @@ async function ayarlarKaydet(){
   };
   await dbMulti(updates);
   // Topbar ve login logoyu güncelle
-  const yeniAd=ad||'⬡ RESTORAN';
+  const yeniAd=ad||'⬡ Resturant';
   document.getElementById('topbarLogo').textContent=yeniAd;
   document.getElementById('loginLogo').textContent=yeniAd;
   notify('Ayarlar kaydedildi ✓');
